@@ -2,8 +2,19 @@
   "name": "@ben-windsurf/component-library",
   "version": "1.0.0",
   "description": "Shared UI components for ben-windsurf applications",
-  "main": "src/index.js",
-  "private": true,
+  "main": "dist/index.js",
+  "module": "dist/index.mjs",
+  "exports": {
+    ".": {
+      "import": "./dist/index.mjs",
+      "require": "./dist/index.js"
+    },
+    "./dist/*": "./dist/*"
+  },
+  "files": [
+    "dist",
+    "src"
+  ],
   "dependencies": {
     "react": "^19.1.0",
     "react-dom": "^19.1.0"
@@ -12,7 +23,15 @@
     "react": "^19.1.0",
     "react-dom": "^19.1.0"
   },
+  "devDependencies": {
+    "@types/react": "^19.1.8",
+    "@types/react-dom": "^19.1.6",
+    "tsup": "^8.5.0",
+    "typescript": "^5.8.3"
+  },
   "scripts": {
-    "build": "echo 'No build step required for local component library'"
+    "build": "tsup",
+    "dev": "tsup --watch",
+    "clean": "rm -rf dist"
   }
 }
