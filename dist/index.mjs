@@ -76,7 +76,7 @@ var Login = ({
       onSocialLogin(provider);
     }
   };
-  return /* @__PURE__ */ jsx2("div", { className: "login-app", style: { "--theme-color": themeColor }, children: /* @__PURE__ */ jsx2("div", { className: "login-container", children: /* @__PURE__ */ jsxs2("div", { className: "login-card", children: [
+  return /* @__PURE__ */ jsxs2("div", { className: "login-container", style: { "--theme-color": themeColor }, children: [
     /* @__PURE__ */ jsx2("div", { className: "logo-container", children: /* @__PURE__ */ jsx2("img", { src: logo, alt: brandName, className: "login-logo" }) }),
     /* @__PURE__ */ jsx2("h1", { className: "login-title", children: displayTitle }),
     /* @__PURE__ */ jsxs2("form", { onSubmit: handleSubmit, className: "login-form", children: [
@@ -194,7 +194,7 @@ var Login = ({
         }
       )
     ] })
-  ] }) }) });
+  ] });
 };
 var Login_default = Login;
 export {

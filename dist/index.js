@@ -112,7 +112,7 @@ var Login = ({
       onSocialLogin(provider);
     }
   };
-  return /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("div", { className: "login-app", style: { "--theme-color": themeColor }, children: /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("div", { className: "login-container", children: /* @__PURE__ */ (0, import_jsx_runtime2.jsxs)("div", { className: "login-card", children: [
+  return /* @__PURE__ */ (0, import_jsx_runtime2.jsxs)("div", { className: "login-container", style: { "--theme-color": themeColor }, children: [
     /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("div", { className: "logo-container", children: /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("img", { src: logo, alt: brandName, className: "login-logo" }) }),
     /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("h1", { className: "login-title", children: displayTitle }),
     /* @__PURE__ */ (0, import_jsx_runtime2.jsxs)("form", { onSubmit: handleSubmit, className: "login-form", children: [
@@ -230,7 +230,7 @@ var Login = ({
         }
       )
     ] })
-  ] }) }) });
+  ] });
 };
 var Login_default = Login;
 // Annotate the CommonJS export names for ESM import in node:
