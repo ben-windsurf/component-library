@@ -29,6 +29,7 @@ var __toCommonJS = (mod) => __copyProps(__defProp({}, "__esModule", { value: tru
 // src/index.js
 var index_exports = {};
 __export(index_exports, {
+  Login: () => Login_default,
   SearchBar: () => SearchBar_default
 });
 module.exports = __toCommonJS(index_exports);
@@ -51,8 +52,128 @@ var SearchBar = ({ themeColor = "#6f42c1", searchIcon, placeholder = "Search eve
   ] });
 };
 var SearchBar_default = SearchBar;
+
+// src/components/Login/Login.js
+var import_react2 = __toESM(require("react"));
+var import_jsx_runtime2 = require("react/jsx-runtime");
+var Login = ({
+  logo,
+  brandName = "StubHub",
+  themeColor = "#684cbc",
+  onSubmit,
+  onForgotPassword,
+  socialLogins = [],
+  showEmailCode = false,
+  showCreateAccount = true,
+  onCreateAccount,
+  loading = false,
+  errorMessage = ""
+}) => {
+  const [email, setEmail] = (0, import_react2.useState)("");
+  const [password, setPassword] = (0, import_react2.useState)("");
+  const [stayLoggedIn, setStayLoggedIn] = (0, import_react2.useState)(false);
+  const isFormValid = email.trim() !== "" && password.trim() !== "";
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    if (isFormValid && onSubmit) {
+      onSubmit({ email, password, stayLoggedIn });
+    }
+  };
+  const handleForgotPassword = () => {
+    if (onForgotPassword) {
+      onForgotPassword();
+    }
+  };
+  const handleCreateAccount = () => {
+    if (onCreateAccount) {
+      onCreateAccount();
+    }
+  };
+  return /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("div", { className: "login-app", style: { "--theme-color": themeColor, "--brand-color": themeColor }, children: /* @__PURE__ */ (0, import_jsx_runtime2.jsxs)("div", { className: "login-container", children: [
+    logo && /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("div", { className: "logo-container", children: /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("img", { src: logo, alt: brandName, className: "logo" }) }),
+    /* @__PURE__ */ (0, import_jsx_runtime2.jsxs)("h1", { className: "login-title", children: [
+      "Sign in to ",
+      brandName
+    ] }),
+    /* @__PURE__ */ (0, import_jsx_runtime2.jsxs)("form", { onSubmit: handleSubmit, className: "login-form", children: [
+      errorMessage && /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("div", { className: "alert alert-danger", role: "alert", children: errorMessage }),
+      /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("div", { className: "input-group", children: /* @__PURE__ */ (0, import_jsx_runtime2.jsx)(
+        "input",
+        {
+          type: "email",
+          placeholder: "Email",
+          value: email,
+          onChange: (e) => setEmail(e.target.value),
+          className: "input-field",
+          required: true
+        }
+      ) }),
+      /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("div", { className: "input-group", children: /* @__PURE__ */ (0, import_jsx_runtime2.jsx)(
+        "input",
+        {
+          type: "password",
+          placeholder: "Password",
+          value: password,
+          onChange: (e) => setPassword(e.target.value),
+          className: "input-field",
+          required: true
+        }
+      ) }),
+      /* @__PURE__ */ (0, import_jsx_runtime2.jsxs)("div", { className: "checkbox-row", children: [
+        /* @__PURE__ */ (0, import_jsx_runtime2.jsxs)("label", { className: "checkbox-label", children: [
+          /* @__PURE__ */ (0, import_jsx_runtime2.jsx)(
+            "input",
+            {
+              type: "checkbox",
+              checked: stayLoggedIn,
+              onChange: (e) => setStayLoggedIn(e.target.checked),
+              className: "checkbox"
+            }
+          ),
+          "Stay logged in"
+        ] }),
+        onForgotPassword && /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("button", { type: "button", className: "forgot-password", onClick: handleForgotPassword, children: "Forgot Password" })
+      ] }),
+      /* @__PURE__ */ (0, import_jsx_runtime2.jsx)(
+        "button",
+        {
+          type: "submit",
+          className: `sign-in-btn ${!isFormValid ? "disabled" : ""}`,
+          disabled: !isFormValid || loading,
+          children: loading ? "Signing in..." : "Sign in"
+        }
+      )
+    ] }),
+    showEmailCode && /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("button", { className: "email-code-btn", children: "Sign in with Email Code" }),
+    socialLogins.length > 0 && /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("div", { className: "social-login", children: socialLogins.map((social, index) => /* @__PURE__ */ (0, import_jsx_runtime2.jsxs)(
+      "button",
+      {
+        type: "button",
+        className: `${social.type}-btn social-btn`,
+        onClick: social.onLogin,
+        children: [
+          social.icon && /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("img", { src: social.icon, alt: social.type, className: "social-icon" }),
+          social.type === "facebook" && "Log in with Facebook",
+          social.type === "apple" && "Sign in with Apple",
+          social.type === "google" && "Sign in with Google"
+        ]
+      },
+      index
+    )) }),
+    showCreateAccount && onCreateAccount && /* @__PURE__ */ (0, import_jsx_runtime2.jsxs)("div", { className: "create-account", children: [
+      /* @__PURE__ */ (0, import_jsx_runtime2.jsxs)("span", { children: [
+        "New to ",
+        brandName,
+        "? "
+      ] }),
+      /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("button", { type: "button", className: "create-account-link", onClick: handleCreateAccount, children: "Create account" })
+    ] })
+  ] }) });
+};
+var Login_default = Login;
 // Annotate the CommonJS export names for ESM import in node:
 0 && (module.exports = {
+  Login,
   SearchBar
 });
 //# sourceMappingURL=index.js.map
