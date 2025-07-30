@@ -7,6 +7,10 @@
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
 }
 
+.login-app * {
+  --theme-color: inherit;
+}
+
 .login-container {
   background: white;
   border-radius: 8px;
@@ -115,7 +119,7 @@
 }
 
 .sign-in-btn:not(.disabled):hover {
-  background-color: var(--brand-color, #5a3fa8);
+  background-color: var(--theme-color, #684cbc);
   filter: brightness(0.9);
 }
 
